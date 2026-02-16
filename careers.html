@@ -1,0 +1,2557 @@
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="en">
+  <head>
+    <title>Careers : IMass Solutions</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto+Slab:700%7CRoboto:100,300,400,500,700,900,300italic">
+    <link rel="stylesheet" href="css/bootstrap6.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/main.css"> -->
+
+    <style>
+
+        .chatimg {
+            height: 50px;
+        }
+
+        .chatwithus {
+            position: fixed;
+            bottom: 15%;
+            right: 16px;
+            z-index: 100;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        
+        .job-listing-container  
+        {
+            box-shadow: rgb(0 0 0 / 3%) 0px 5px 20px 0px;
+            display1: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: reverse;
+            flex-flow: row-reverse wrap;
+        }
+            @media (max-width: 1199px)
+            .filtered-job-listing-wrapper
+            {
+                padding: 10px 10px;
+                background: rgb(255, 255, 255);
+                width: 100%;
+            }
+
+        /*@media (max-width: 991px)
+        .job-listing-container, .candidate-container, .employer-container {
+            display: block;
+        }*/
+
+        /*.job-listing-container, .candidate-container, .employer-container {
+            -webkit-box-shadow: 0px 5px 20px 0px rgb(0 0 0 / 3%);
+            box-shadow: 0px 5px 20px 0px rgb(0 0 0 / 3%);
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: reverse;
+            -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        }*/
+
+        @media (max-width: 1199px)
+        .filtered-job-listing-wrapper, .filtered-candidate-wrapper, .filtered-employer-wrapper {
+            padding: 30px 20px;
+            background: rgb(255, 255, 255);
+        }
+
+        .job-filter-result .job-list, .candidate-filter-result .job-list, .employer-filter-result .job-list {
+            padding: 30px 20px;
+        }
+
+        .filtered-job-listing-wrapper, .filtered-candidate-wrapper, .filtered-employer-wrapper {
+            padding: 10px 10px;
+            background: rgb(255, 255, 255);
+        }
+
+        .job-view-controller-wrapper .showing-number span, .candidate-view-controller-wrapper .showing-number span, .employer-view-controller-wrapper .showing-number span {
+            display: inline-block;
+            font-size: 1.6rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+        }
+
+        @media (max-width: 991px)
+        .job-list {
+            padding: 30px 20px;
+        }
+        .job-list {
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            width: 100%;
+            -webkit-transition: all .3s ease;
+            -o-transition: all .3s ease;
+            transition: all .3s ease;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            padding: 30px;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+        .job-list .thumb {
+          width: 80px;
+          height: 80px;
+          border-radius: 3px;
+          background: #f9f9f9;
+          border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .job-list .body {
+            padding-left: 30px;
+            width: calc(100% - 82px);
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+        }
+
+        @media (max-width: 991px)
+        .job-listing-container, .candidate-container, .employer-container {
+            display: block;
+        }
+
+        .job-listing-container, .candidate-container, .employer-container {
+    
+          -webkit-box-direction: reverse;
+        }
+
+        .job-list .body .content h4 {
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: #232630;
+            margin-bottom: 15px;
+        }
+
+        .job-list .body .content .info span  {
+            margin-right1: 10px;
+            padding-left: 0px; padding-right: 2px;
+            font-size: 1.4rem;
+            color: rgb(111, 116, 132) !important;  /* color: #44bef1; */
+        }
+
+        .job-list .body .content .info span a {
+            
+            color: rgb(111, 116, 132) !important;  /* color: #44bef1; */
+        }
+
+        .job-list .body .content .info span svg {
+            height: 15px;
+            color: rgb(170, 170, 170);
+        }
+        svg {
+            overflow: hidden;
+            vertical-align: middle;
+        }
+        
+
+        a {
+            transition: all 0.3s ease 0s;
+        }
+
+
+        .job-list .body .more .buttons .favourite {
+            height: 38px;
+            width: 38px;
+            background: #ffffff;
+            text-align: center;
+            line-height: 38px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 50%;
+        }
+
+        .job-list .body .more .buttons {
+              display: -webkit-box;
+              display: -ms-flexbox;
+              display: flex;
+              -webkit-box-orient: horizontal;
+              -webkit-box-direction: reverse;
+              -ms-flex-direction: row-reverse;
+              flex-direction: row-reverse;
+              -webkit-box-align: center;
+              -ms-flex-align: center;
+              align-items: center;
+          }
+
+          .job-list .body .more .buttons .button {
+              padding: 6px 7px;
+              font-family: "Poppins", sans-serif;
+              font-weight: 500;
+              font-size: 1.4rem;
+              margin-left: 20px;
+              background: #f9f9f9;
+              border: 1px solid rgba(0, 0, 0, 0.08);
+          }
+
+          .button {
+              border: 1px solid transparent;
+              outline: none;
+              -webkit-box-shadow: none;
+              box-shadow: none;
+              border-radius: 3px;
+              cursor: pointer;
+              -webkit-transition: all .3s ease;
+              -o-transition: all .3s ease;
+              transition: all .3s ease;
+          }
+
+        .pagination-list .pagination.navigation {
+            margin-top: 5px;
+        }
+
+        .pagination-list .pagination {
+            padding: 5px 0 5px;
+            margin: 0;
+            display: block;
+            font-size: 0;
+        }
+
+        .pagination {
+            /*display: -ms-flexbox;  */
+            display: flex;
+            padding-left: 0;
+            list-style: none;
+            border-radius: 0.25rem;
+        }
+        
+        .pagination-list .pagination .prev {
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            background: #f9fbfe;
+        }
+
+        .pagination-list .pagination .nav-links .page-numbers {
+              height: 35px;
+              width: 35px;
+              line-height: 35px;
+              border-radius: 3px;
+              text-align: center;
+              font-size: 1.5rem;
+              display: inline-block;
+              margin: 0 5px;
+              font-weight: 400;
+              color: #6f7484;
+              -webkit-transition: all .3s ease;
+              -o-transition: all .3s ease;
+              transition: all .3s ease;
+              position: relative;
+          }
+
+          .pagination .nav-links .page-numbers.current {
+              color: #ffffff;
+              background: #246df8;
+              border-color: #246df8;
+          }
+          .pagination-list .pagination .next, .pagination-list .pagination .prev {
+              border: 1px solid rgba(0, 0, 0, 0.08);
+              background: #f9fbfe;
+          }
+
+          .job-view-controller-wrapper {
+            display: flex;
+          }
+          .job-view-controller-wrapper .job-view-controller .controller.active, .controller.active {
+              color: rgb(36, 109, 248);
+              border-color: rgba(36, 109, 248, 0.3);
+          }
+
+          @media (max-width: 991px)
+        .job-listing-container .filtered-job-listing-wrapper
+        {
+            width: 100%;
+        }
+
+        .job-view-filter .bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn)
+        {
+          width: 150px;
+        }
+
+       .job-view-controller-wrapper .job-view-controller .controller   
+       {
+            margin-right: 15px;
+            height: 40px;
+            width: 40px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 3px;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+            color: rgb(177, 177, 177);
+            transition: all 0.3s ease 0s;
+        }
+
+        .job-view-controller-wrapper
+        {   display: flex;
+            -webkit-box-pack: justify;
+            justify-content: space-between;
+            -webkit-box-align: center;
+            align-items: center;
+            padding-bottom: 30px;
+        }
+
+        @media (max-width: 991px)
+        .job-listing-container  {
+            display: block;
+        }
+
+        .job-view-controller-wrapper .job-view-controller
+        {
+          display: flex !important;
+        }
+        
+         
+        .modal-backdrop {
+         z-index:1540;
+         } 
+
+
+        .apply-popup .modal-dialog .modal-content .modal-header h5 {
+            font-size: 1.4rem;
+            font-family: "Poppins", sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #232630;
+        }
+
+        .modal-title {
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+
+        .modal-open .modal {
+            overflow-x: hidden;
+            overflow-y: auto;
+            margin-top :-10px;
+        }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1550 !important;
+            display: none;
+            overflow: hidden;
+            outline: 0;
+        }
+
+
+.apply-popup .modal-dialog .modal-content .modal-body .file-input-wrap label input {
+  display: none;
+}
+
+.modal-dialog {
+    position: relative;
+    width: auto;
+    height: auto;: 
+}
+
+.apply-popup .modal-dialog {
+                margin: 20px auto !important;
+            }
+
+            @media (min-width: 576px)
+            .modal-dialog {
+                max-width: 500px;
+                margin: 1.75rem auto;
+            }
+
+          @media (min-width: 576px)
+          .modal-dialog {
+              max-width: 500px;
+              margin: 1.75rem auto;
+          }
+          .modal-dialog {
+              position: relative;
+              width: auto;
+              margin: 0.5rem;
+              pointer-events: none;
+          }
+
+
+          .modal-content {
+            position: relative;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            width: 100%;
+            pointer-events: auto;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid rgba(0,0,0,.2);
+            border-radius: 0.3rem;
+            outline: 0;
+        }
+
+        .modal-title {
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+
+
+.apply-popup .modal-dialog {
+  margin: 20px auto;
+}
+
+.apply-popup .modal-dialog .modal-content .modal-header {
+  padding: 15px 30px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.apply-popup .modal-dialog .modal-content .modal-header h5 {
+  font-size: 1.4rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #232630;
+}
+
+.apply-popup .modal-dialog .modal-content .modal-header h5 svg {
+  height: 15px;
+  width: 15px;
+  margin-right: 7px;
+  color: #bebebe;
+}
+
+.apply-popup .modal-dialog .modal-content .modal-header .close {
+  font-size: 2rem;
+  padding: 0;
+  margin: 0;
+  height: 30px;
+  width: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 50%;
+  color: #6f7484;
+  -webkit-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+  outline: none;
+}
+
+.apply-popup .modal-dialog .modal-content .modal-body {
+  padding: 30px;
+}
+
+.apply-popup .modal-dialog .modal-content .modal-body .form-group {
+  margin-bottom1: 30px;
+}
+
+.apply-popup .modal-dialog .modal-content .modal-body .form-group .form-control {
+  height: 50px;
+  border: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 0;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  font-size: 1.4rem;
+}
+
+.apply-popup .modal-dialog .modal-content .modal-body .form-group textarea.form-control {
+  height: 100px;
+}
+
+.apply-popup .modal-dialog .modal-content .modal-body .file-input-wrap label {
+  background: #f9f9f9;
+  border-radius: 3px;
+  border: 1px dashed #d5d5d5;
+  width: 100%;
+  display: block;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.apply-popup .modal-dialog .modal-content .modal-body .file-input-wrap label input {
+  display: none;
+}
+
+.apply-popup .modal-dialog .modal-content .modal-body .file-input-wrap label svg {
+  display: block;
+  height: 20px;
+  width: 20px;
+  color: #aaaaaa;
+  margin: 0 auto;
+}
+
+.apply-popup .modal-dialog .modal-content .modal-body .file-input-wrap label span {
+  color: #6f7484;
+  font-size: 1.4rem;
+}
+
+.apply-popup .modal-dialog .modal-content .modal-body .file-input-wrap label span span {
+  font-size: 1.2rem;
+  color: #aaaaaa;
+}
+
+.apply-popup .modal-dialog .modal-content .modal-body .more-option {
+  margin-bottom: 30px;
+}
+
+.apply-popup .modal-dialog .modal-content .modal-body .more-option label {
+  color: #6f7484;
+}
+
+.apply-popup .modal-dialog .modal-content .modal-body .more-option label .dot {
+  border: 1px solid #dcdcdc;
+  border-radius: 5px;
+}
+
+.apply-popup .modal-dialog .modal-content .modal-body .more-option label .dot:before {
+  border-radius: 2px;
+}
+
+.apply-popup .modal-dialog .modal-content .modal-body .more-option label a {
+  color: #246df8;
+  text-decoration: underline;
+}
+
+.apply-popup .modal-dialog .modal-content .modal-body .button {
+  margin-left: 0;
+  padding: 15px;
+  border: 0;
+  border-radius: 5px;
+  background: #246df8;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 1.4rem;
+  font-family: "Poppins", sans-serif;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.primary-bg {
+    background: #246df8;
+}
+
+
+        .modal.show1 .modal-dialog1 {
+              -webkit-transform: translate(0,0);
+              transform: translate(0,0);
+          }
+          .modal.fade1 .modal-dialog1 {
+              transition: -webkit-transform .3s ease-out;
+              transition: transform .3s ease-out;
+              transition: transform .3s ease-out,-webkit-transform .3s ease-out;
+              -webkit-transform: translate(0,-25%);
+              transform: translate(0,-25%);
+          }
+          .apply-popup1 .modal-dialog1 {
+              margin: 50px auto;
+          }
+
+/*
+        .modal.show .modal-dialog {
+              -webkit-transform: translate(0,0);
+              transform: translate(0,0);
+          }
+          .modal.fade .modal-dialog {
+              transition: -webkit-transform .3s ease-out;
+              transition: transform .3s ease-out;
+              transition: transform .3s ease-out,-webkit-transform .3s ease-out;
+              -webkit-transform: translate(0,-25%);
+              transform: translate(0,-25%);
+          }
+          .apply-popup .modal-dialog {
+              margin: 50px auto;
+          }
+
+          .apply-popup .modal-dialog {
+                margin1: 20px auto !important;
+            }
+
+            @media (min-width: 576px)
+            .modal-dialog {
+                max-width: 500px;
+                margin: 1.75rem auto;
+            }
+
+          @media (min-width: 576px)
+          .modal-dialog {
+              max-width: 500px;
+              margin: 1.75rem auto;
+          }
+          .modal-dialog {
+              position: relative;
+              width: auto;
+              margin: 0.5rem;
+              pointer-events: none;
+          }
+
+
+          .modal-content {
+            position: relative;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            width: 100%;
+            pointer-events: auto;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid rgba(0,0,0,.2);
+            border-radius: 0.3rem;
+            outline: 0;
+        }
+
+        .modal-title {
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+
+
+.apply-popup .modal-dialog {
+  margin: 20px auto;
+}
+
+.apply-popup .modal-dialog .modal-content .modal-header {
+  padding: 15px 30px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.apply-popup .modal-dialog .modal-content .modal-header h5 {
+  font-size: 1.4rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #232630;
+}
+
+.apply-popup .modal-dialog .modal-content .modal-header h5 svg {
+  height: 15px;
+  width: 15px;
+  margin-right: 7px;
+  color: #bebebe;
+}
+
+.apply-popup .modal-dialog .modal-content .modal-header .close {
+  font-size: 2rem;
+  padding: 0;
+  margin: 0;
+  height: 30px;
+  width: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 50%;
+  color: #6f7484;
+  -webkit-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  transition: all .3s ease;
+  outline: none;
+}
+
+.apply-popup .modal-dialog .modal-content .modal-body {
+  padding: 30px;
+}
+
+.apply-popup .modal-dialog .modal-content .modal-body .form-group {
+  margin-bottom: 30px;
+}
+
+.apply-popup .modal-dialog .modal-content .modal-body .form-group .form-control {
+  height: 50px;
+  border: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 0;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  font-size: 1.4rem;
+}
+
+.apply-popup .modal-dialog .modal-content .modal-body .form-group textarea.form-control {
+  height: 100px;
+}
+
+.apply-popup .modal-dialog .modal-content .modal-body .file-input-wrap label {
+  background: #f9f9f9;
+  border-radius: 3px;
+  border: 1px dashed #d5d5d5;
+  width: 100%;
+  display: block;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.apply-popup .modal-dialog .modal-content .modal-body .file-input-wrap label input {
+  display: none;
+}
+
+.apply-popup .modal-dialog .modal-content .modal-body .file-input-wrap label svg {
+  display: block;
+  height: 20px;
+  width: 20px;
+  color: #aaaaaa;
+  margin: 0 auto;
+}
+
+.apply-popup .modal-dialog .modal-content .modal-body .file-input-wrap label span {
+  color: #6f7484;
+  font-size: 1.4rem;
+}
+
+.apply-popup .modal-dialog .modal-content .modal-body .file-input-wrap label span span {
+  font-size: 1.2rem;
+  color: #aaaaaa;
+}
+
+.apply-popup .modal-dialog .modal-content .modal-body .more-option {
+  margin-bottom: 30px;
+}
+
+.apply-popup .modal-dialog .modal-content .modal-body .more-option label {
+  color: #6f7484;
+}
+
+.apply-popup .modal-dialog .modal-content .modal-body .more-option label .dot {
+  border: 1px solid #dcdcdc;
+  border-radius: 5px;
+}
+
+.apply-popup .modal-dialog .modal-content .modal-body .more-option label .dot:before {
+  border-radius: 2px;
+}
+
+.apply-popup .modal-dialog .modal-content .modal-body .more-option label a {
+  color: #246df8;
+  text-decoration: underline;
+}
+
+.apply-popup .modal-dialog .modal-content .modal-body .button {
+  margin-left: 0;
+  padding: 15px;
+  border: 0;
+  border-radius: 5px;
+  background: #246df8;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 1.4rem;
+  font-family: "Poppins", sans-serif;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.primary-bg {
+    background: #246df8;
+}
+ */
+.HTitle{
+ font-size: 1.4rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #232630;
+}
+}         
+
+    </style>  
+
+  </head>
+  <body>
+
+        <a class="chatwithus" href="https://api.whatsapp.com/send?phone=7013891885&amp;text=Please Connect Me to Support" data-action1="share/whatsapp/share" target1="_blank" data-toggle1="tooltip" data-placement="left" title="Chat with us on WHATSAPP" data-original-title="WhatsApp Chat">
+            <img src="images/waicon.png" class="chatimg">
+        </a>  <!--  This For Web  -->
+
+    <div class="preloader">
+      <div class="preloader-body">
+        <div class="cssload-container">
+          <div class="cssload-speeding-wheel"></div>
+        </div>
+        <p>Loading...</p>
+      </div>
+    </div>
+    <div class="page">
+      <!-- Page Header-->
+      <header class="section page-header">
+        <!--RD Navbar-->
+        <div class="rd-navbar-wrap">
+          <nav class="rd-navbar rd-navbar-classic" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-static" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-lg-stick-up-offset="46px" data-xl-stick-up-offset="46px" data-xxl-stick-up-offset="46px" data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true">
+            <div class="rd-navbar-collapse-toggle rd-navbar-fixed-element-1" data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></div>
+            <div class="rd-navbar-aside-outer rd-navbar-collapse">
+              <div class="rd-navbar-aside" style="display:none;">
+                <div class="bg-wrap">
+                  <div class="block-container">
+                    <div class="block-left">
+                      <p class="rd-navbar-fixed--hidden small">Welcome to IMass, your expert in managing your Solutions!</p>
+                    </div>
+                    <div class="block-right">
+                      <ul class="list-inline">
+                        <li><a class="icon icon-xxs icon-circle icon-dark icon-alto-filled fa-facebook" href="#"></a></li>
+                        <li><a class="icon icon-xxs icon-circle icon-dark icon-alto-filled fa-twitter" href="#"></a></li>
+                        <li><a class="icon icon-xxs icon-circle icon-dark icon-alto-filled fa-instagram" href="#"></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="rd-navbar-info">
+                <!--Brand--><a class="brand" href="index.html"><img class="brand-logo-dark" src="images/logo-default-158x37.png" alt="" width="79" height="18"/><img class="brand-logo-light" src="images/logo-inverse-158x37.png" alt="" width="79" height="18"/></a>
+                <ul class="contact-info-list">
+                  <li><img src="images/icon-clock-32x32.png" alt="" width="32" height="32"/>
+                    <address class="contact-info"><span class="fw-bold">Mon - Sat: 9:00-18:00</span><span>Sunday CLOSED</span></address>
+                  </li>
+                  <li><img src="images/icon-map-marker-25x33.png" alt="" width="25" height="33"/>
+                    <address class="contact-info"><a href="#"><span class="fw-bold">Hylum Colony, Venkatgiri</span><span>Hyderabad , India</span></a></address>
+                  </li>
+                  <li><img src="images/icon-phone-28x29.png" alt="" width="28" height="29"/>
+                    <address class="contact-info"><a class="fw-bold" href="tel:#">+91 701-389-1885</a><a href="mailto:#">info@IMassSolutions.com</a></address>
+                  </li>
+                  <li>
+                        <div>  <a class="icon icon-xxs icon-circle icon-dark icon-alto-filled fa-facebook" href="#"></a> &nbsp; <a class="icon icon-xxs icon-circle icon-dark icon-alto-filled fa-twitter" href="#"></a>  &nbsp;  <a class="icon icon-xxs icon-circle icon-dark icon-alto-filled fa-instagram" href="#"></a> </div>
+                        
+
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="rd-navbar-main-outer">
+              <div class="rd-navbar-main">
+                <!--RD Navbar Panel-->
+                <div class="rd-navbar-panel">
+                  <!--RD Navbar Toggle-->
+                  <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                  <!--RD Navbar Brand-->
+                  <div class="rd-navbar-brand">
+                    <!--Brand--><a class="brand" href="index.html"><img class="brand-logo-dark" src="images/logo-default-158x37.png" alt="" width="79" height="18"/><img class="brand-logo-light" src="images/logo-inverse-158x37.png" alt="" width="79" height="18"/></a>
+                  </div>
+                </div>
+                <div class="rd-navbar-main-element">
+                  <div class="rd-navbar-nav-wrap">
+                    <ul class="rd-navbar-nav">
+                      
+                      <li class="rd-nav-item "><a class="rd-nav-link" href="index.html">Home</a>
+                        <!-- <ul class="rd-menu rd-navbar-dropdown">
+                          <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="index-2.html">Home Variant 2</a>
+                          </li>
+                        </ul> -->
+                      </li>
+
+                      <li class="rd-nav-item"><a class="rd-nav-link" href="about.html">About</a>
+                      </li>
+
+                      <!-- <li class="rd-nav-item"><a class="rd-nav-link" href="about.html">About</a>
+                        <ul class="rd-menu rd-navbar-dropdown">
+                          <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="careers.html">Careers</a>
+                          </li>
+                          <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="team.html">Team</a>
+                          </li>
+                          <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="team-member-profile.html">Team member profile</a>
+                          </li>
+                        </ul>
+                      </li> -->
+                      <li class="rd-nav-item"><a class="rd-nav-link" href="services.html">Industries</a>
+                      </li>
+
+                      <li class="rd-nav-item active"><a class="rd-nav-link" href="careers.html">Careers</a>
+                      </li>
+
+                      <!-- <li class="rd-nav-item"><a class="rd-nav-link" href="blog.html">Blog</a>
+                        <ul class="rd-menu rd-navbar-dropdown">
+                          <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="blog-post.html">Blog post</a>
+                          </li>
+                        </ul>
+                      </li> -->
+                      <!-- <li class="rd-nav-item"><a class="rd-nav-link">Pages</a>
+                        <ul class="rd-menu rd-navbar-dropdown">
+                          <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="#">Elements</a>
+                            <ul class="rd-menu rd-navbar-dropdown">
+                              <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="buttons.html">Buttons</a>
+                              </li>
+                              <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="forms.html">Forms</a>
+                              </li>
+                              <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="grid-system.html">Grid system</a>
+                              </li>
+                              <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="icons.html">Icons FontAwesome</a>
+                              </li>
+                              <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="progress-bars.html">Progress Bars</a>
+                              </li>
+                              <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="tables.html">Table Styles</a>
+                              </li>
+                              <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="tabs.html">Tabs</a>
+                              </li>
+                              <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="typography.html">Typography</a>
+                              </li>
+                            </ul>
+                          </li>
+                          <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="#">Feature</a>
+                            <ul class="rd-menu rd-navbar-dropdown">
+                              <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="index.html">Header Default</a>
+                              </li>
+                              <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="header-light.html">Header Light</a>
+                              </li>
+                              <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="header-contrast.html">Header Contrast</a>
+                              </li>
+                              <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="index.html">Footer Default</a>
+                              </li>
+                              <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="footer-minimal.html">Footer Minimal</a>
+                              </li>
+                              <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="footer-variant-3.html">Footer Variant 3</a>
+                              </li>
+                            </ul>
+                          </li>
+                          <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="coming-soon.html">Coming soon</a>
+                          </li>
+                          <li class="rd-dropdown-item"><a class="rd-dropdown-link" href="404.html">404 Page</a>
+                          </li>
+                        </ul>
+                      </li> -->
+                      <li class="rd-nav-item"><a class="rd-nav-link" href="contacts.html">Contacts</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <!--RD Navbar Search-->
+                  <div class="rd-navbar-search">
+                    <button class="rd-navbar-search-toggle rd-navbar-fixed-element-2" data-rd-navbar-toggle=".rd-navbar-search"><span></span></button>
+                    <form class="rd-search" action="search-results.html" data-search-live="rd-search-results-live" method="GET">
+                      <div class="form-wrap">
+                        <label class="form-label" for="rd-navbar-search-form-input">Search</label>
+                        <input class="rd-navbar-search-form-input form-input" id="rd-navbar-search-form-input" type="text" name="s" autocomplete="off">
+                        <div class="rd-search-results-live" id="rd-search-results-live"></div>
+                      </div>
+                      <button class="rd-search-form-submit fl-bigmug-line-search74" type="submit"></button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <!-- Breadcrumbs-->
+      <section class="section">
+        <div class="breadcrumbs-custom bg-image context-dark" style="background-image: url(images/bg-image-1.jpg);" data-preset='{"title":"Breadcrumbs","category":"header","reload":false,"id":"breadcrumbs"}'>
+          <div class="container">
+            <h2 class="text-center breadcrumbs-custom-title">Careers</h2>
+            <hr class="hr-block hr-white"/>
+          </div>
+        </div>
+        <div class="breadcrumbs-inner">
+          <div class="container mt-0">
+            <ul class="breadcrumbs-custom-path">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li class="active">Careers</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <!-- Page Content-->
+      <section class="section section-md bg-default">
+        <div class="container">
+          <div class="row row-30">
+            <div class="col-sm-12 col-lg-8 col-xl-9">
+              <div class="row row-40">
+                <div class="col-sm-12">
+                  <div class="inset-lg-right-15 shift-up-sm-10">
+                    <h3>Job Requirements</h3>
+                    <p class="text-style-1 offset-top-22">
+                      We focus on nurturing our team and providing our team an environment that is conductive to creative thought. We focus on
+                      eliminating stress and pressure so our team can think clearly and creatively.We specialize in hiring people who have the drive
+                      to succeed and the will to implement the discipline required to succeed.
+                    </p>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <h3>Application Process</h3>
+                  <ol class="list-index row row-30">
+                    <li class="col-sm-12 col-md-4">
+                      <div class="list-item-body">
+                        <div class="list-index-counter"></div><span class="icon icon-lg icon-curious-blue fl-sympletts-down-arrow19"></span>
+                        <h5><a href="#">Download Application</a></h5>
+                        <p>
+                          More than 20 open positions
+                          in 4 financial directions
+                        </p>
+                      </div>
+                    </li>
+                    <li class="col-sm-12 col-md-4">
+                      <div class="list-item-body">
+                        <div class="list-index-counter"></div><span class="icon icon-image"><img src="images/icon-pen-41x55.png" alt="" width="41" height="55"/></span>
+                        <h5><a href="#">Fill Out The Form</a></h5>
+                        <p>
+                          Write down the information
+                          about yourself
+                        </p>
+                      </div>
+                    </li>
+                    <li class="col-sm-12 col-md-4">
+                      <div class="list-item-body">
+                        <div class="list-index-counter"></div><span class="icon icon-lg icon-curious-blue fl-sympletts-check-mark4"></span>
+                        <h5><a href="#">Send</a></h5>
+                        <p>
+                          Our representative will
+                          contact you as soon as possible
+                          
+                        </p>
+                      </div>
+                    </li>
+                  </ol>
+                </div>
+
+
+<!--                 <div class="col-sm-12">
+                  
+                      <img src="images/HRProcess.png">
+
+                </div>
+ -->
+              </div>
+              <div class="row row-30 row-xl">
+                <div class="col-sm-12 col-md-6">
+                  <div class="thumbnail thumbnail-video">
+                    <figure><img src="images/about-2-436x288.jpg" alt="" width="436" height="288"/>
+                    </figure><a class="play-icon" data-lightgallery="item" href="https://www.youtube.com/watch?v=_j7-oZ2eQwI"></a>
+                  </div>
+                </div>
+                <div class="col-sm-12 col-md-6 offset-top-38 offset-sm-top-0">
+                  <div class="inset-md-left-30 shift-up-sm-10">
+                    <h3>Benefits and rewards</h3>
+                    <p class="offset-top-15">
+                      We care for our clients' business as our business. We think
+                      and act like business partners, not academic advisors. We share our clients' aspirations, work to understand their reality, and align our incentives with their objectives - so they get:
+                    </p>
+                    <ul class="list-marked list-marked-spacing-lg offset-top-22">
+                      <li>Wellness and personal growth</li>
+                      <li>Health care coverage</li>
+                      <li>Finances and savings</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              
+              <!--------
+
+              <div class="row row-xl row-30">
+                <div class="col-sm-12">
+                  <h3>Opened Positions</h3>
+                  <div class="table-mobile offset-top-22">
+                    <table class="table table-fixed table-border-top">
+                      <thead>
+                        <tr>
+                          <th>Job Posting Title</th>
+                          <th>Location</th>
+                          <th>Date</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><a href="#">Leveraged Buyout Investor</a></td>
+                          <td>Washington, D.C.</td>
+                          <td>
+                            <time datetime="2023-01-08">January 8, 2023</time>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><a href="#">Financial Analyst</a></td>
+                          <td>New York, NY</td>
+                          <td>
+                            <time datetime="2023-01-03">January 3, 2023</time>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><a href="#">Investment Advisor</a></td>
+                          <td>San Diego, CA</td>
+                          <td>
+                            <time datetime="2023-01-02">January 2, 2023</time>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td><a href="#">Loss Control Specialist</a></td>
+                          <td>Washington, D.C</td>
+                          <td>
+                            <time datetime="2023-01-02">January 2, 2023</time>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+                  ----------------->
+</div>
+
+                  <br>
+
+  <div class="alice-bg section-padding-bottom">
+      <div class="container">
+        <div class="row no-gutters row-xl row-30">
+          <div class="col-sm-12 col-md-12  ">
+
+
+
+
+            <div class="job-listing-container">
+              <div class="filtered-job-listing-wrapper">
+                <div class="job-view-controller-wrapper">
+                  <div class="job-view-controller">
+                    <!--<div class="controller list active">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                    </div>
+                    <div class="controller grid">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-grid"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                    </div> -->
+                    
+                    <div class="pagination-list text-center">
+                      <nav class="navigation pagination">
+                        <div class="nav-links">
+                          <a class="prev page-numbers" href="#"><i class="fa fa-chevron-left"></i></a>
+                          <a class="page-numbers" href="#">1</a>
+                          <span aria-current="page" class="page-numbers current">2</span>
+                          <a class="page-numbers" href="#">3</a>
+                          <a class="page-numbers" href="#">4</a>
+                          <a class="next page-numbers" href="#"><i class="fa fa-chevron-right"></i></a>
+                        </div>
+                      </nav>                
+                    </div>
+
+                    <!--  <div class="job-view-filter">
+                      <div class="dropdown bootstrap-select"><select class="selectpicker" tabindex="-98">
+                        <option value="" selected="">Most Recent</option>
+                        <option value="california">Top Rated</option>
+                        <option value="las-vegas">Most Popular</option>
+                      </select><button type="button" class="btn dropdown-toggle bs-placeholder btn-light" data-toggle="dropdown" role="button" title="Most Recent"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">Most Recent</div></div> </div></button><div class="dropdown-menu " role="combobox"><div class="inner show" role="listbox" aria-expanded="false" tabindex="-1"><ul class="dropdown-menu inner show"></ul></div></div></div>
+                    </div> --> 
+                  </div>  
+                  <div class="showing-number">
+                    <span>Showing 1–12 of 28 Jobs</span>
+                  </div>
+                </div>
+                <div class="job-filter-result">
+
+
+                  <div class="job-list">
+                    
+                    <div class="thumb col-2 col-sm-6 col-md-2">
+                      <a href="#">
+                        <img src="images/JobCandidate.png" class="img-fluid" alt="">
+                      </a>
+                    </div>
+
+                    <div class="body col-10 col-md-10 col-sm-12 col-xs-12">
+
+                      <div class="content col-8 col-md-8 col-sm-6 col-xs-12">
+                        
+
+                        <h4><a href="job-details.html">Nutrition Advisor Nutrition Advisor</a></h4>
+
+                        <div class="info">
+                        
+                          <span class="company col-md-1 col-sm-3 col-xs-6"><a href="#"><i class="fa fa-gift"> </i></svg>Theoreo</a>
+                          </span>
+
+                          <span class="office-location col-md-1 col-sm-3 col-xs-6"><a href="#"><i class="fa fa-map-marker"> </i>New York City</a>
+                          </span>
+                          <span class="job-type full-time col-md-1 col-sm-3 col-xs-6"><a href="#"><i class="fa fa-clock-o"> </i>Full Time</a>
+                          </span>
+                        
+                        </div>
+
+                      </div>
+                      
+                      <div class="more col-5 col-md-5 col-sm-6 text-left col-md-5 col-xs-12">
+                        <div class="buttons">
+                          <a href="#" class="button" data-toggle="modal" data-target="#apply-popup-id">Apply Now</a>
+                          <a href="#" class="favourite"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></a>
+                        </div>
+                        <p class="deadline">Deadline: Oct 31,  2019</p>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                  <div class="job-list">
+                    
+                    <div class="thumb col-2 col-sm-6 col-md-2">
+                      <a href="#">
+                        <img src="images/JobCandidate.png" class="img-fluid" alt="">
+                      </a>
+                    </div>
+
+                    <div class="body col-10 col-md-10 col-sm-12">
+
+                      <div class="content col-8 col-md-8">
+                        
+
+                        <h4><a href="job-details.html">Nutrition Advisor Nutrition Advisor</a></h4>
+
+                        <div class="info">
+                        
+                          <span class="company col-md-1 col-sm-3 "><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-briefcase"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>Theoreo</a>
+                          </span>
+
+                          <span class="office-location col-md-1 col-sm-3"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>New York City</a>
+                          </span>
+                          <span class="job-type full-time col-md-1 col-sm-3"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>Full Time</a>
+                          </span>
+                        
+                        </div>
+
+                      </div>
+                      
+                      <div class="more col-5 col-md-5 col-sm-6 text-left col-md-5">
+                        <div class="buttons">
+                          <a href="#" class="button" data-toggle="modal" data-target="#apply-popup-id">Apply Now</a>
+                          <a href="#" class="favourite"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></a>
+                        </div>
+                        <p class="deadline">Deadline: Oct 31,  2019</p>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                  <div class="job-list">
+                    
+                    <div class="thumb col-2 col-sm-6 col-md-2">
+                      <a href="#">
+                        <img src="images/JobCandidate.png" class="img-fluid" alt="">
+                      </a>
+                    </div>
+
+                    <div class="body col-10 col-md-10 col-sm-12">
+
+                      <div class="content col-8 col-md-8">
+                        
+
+                        <h4><a href="job-details.html">Nutrition Advisor Nutrition Advisor</a></h4>
+
+                        <div class="info">
+                        
+                          <span class="company col-md-1 col-sm-3 "><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-briefcase"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>Theoreo</a>
+                          </span>
+
+                          <span class="office-location col-md-1 col-sm-3"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>New York City</a>
+                          </span>
+                          <span class="job-type full-time col-md-1 col-sm-3"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>Full Time</a>
+                          </span>
+                        
+                        </div>
+
+                      </div>
+                      
+                      <div class="more col-5 col-md-5 col-sm-6 text-left col-md-5">
+                        <div class="buttons">
+                          <a href="#" class="button" data-toggle="modal" data-target="#apply-popup-id">Apply Now</a>
+                          <a href="#" class="favourite"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></a>
+                        </div>
+                        <p class="deadline">Deadline: Oct 31,  2019</p>
+                      </div>
+
+                    </div>
+
+                  </div>
+
+
+
+
+                  <div class="job-list">
+                    
+                    <div class="thumb">
+                      <a href="#">
+                        <img src="images/job/company-logo-9.png" class="img-fluid" alt="">
+                      </a>
+                    </div>
+
+                    <div class="body">
+
+                      <div class="content">
+                        
+                        <h4><a href="job-details.html">Nutrition Advisor</a></h4>
+
+                        <div class="info">
+                          <span class="company"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-briefcase"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>Theoreo</a></span>
+                          <span class="office-location"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>New York City</a></span>
+                          <span class="job-type full-time"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>Full Time</a></span>
+                        </div>
+
+                      </div>
+                      
+                      <div class="more">
+                        <div class="buttons">
+                          <a href="#" class="button" data-toggle="modal" data-target="#apply-popup-id">Apply Now</a>
+                          <a href="#" class="favourite"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></a>
+                        </div>
+                        <p class="deadline">Deadline: Oct 31,  2019</p>
+                      </div>
+
+                    </div>
+
+                  </div>
+                  
+                  <div class="job-list">
+                    <div class="thumb">
+                      <a href="#">
+                        <img src="images/job/company-logo-9.png" class="img-fluid" alt="">
+                      </a>
+                    </div>
+                    <div class="body">
+                      <div class="content">
+                        <h4><a href="job-details.html">Nutrition Advisor</a></h4>
+                        <div class="info">
+                          <span class="company"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-briefcase"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>Theoreo</a></span>
+                          <span class="office-location"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>New York City</a></span>
+                          <span class="job-type full-time"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>Full Time</a></span>
+                        </div>
+                      </div>
+                      <div class="more">
+                        <div class="buttons">
+                          <a href="#" class="button" data-toggle="modal" data-target="#apply-popup-id">Apply Now</a>
+                          <a href="#" class="favourite"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></a>
+                        </div>
+                        <p class="deadline">Deadline: Oct 31,  2019</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="job-list">
+                    <div class="thumb">
+                      <a href="#">
+                        <img src="images/job/company-logo-10.png" class="img-fluid" alt="">
+                      </a>
+                    </div>
+                    <div class="body">
+                      <div class="content">
+                        <h4><a href="job-details.html">UI Designer</a></h4>
+                        <div class="info">
+                          <span class="company"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-briefcase"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>Degoin</a></span>
+                          <span class="office-location"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>San Francisco</a></span>
+                          <span class="job-type part-time"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>Part Time</a></span>
+                        </div>
+                      </div>
+                      <div class="more">
+                        <div class="buttons">
+                          <a href="#" class="button" data-toggle="modal" data-target="#apply-popup-id">Apply Now</a>
+                          <a href="#" class="favourite"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></a>
+                        </div>
+                        <p class="deadline">Deadline: Oct 31,  2019</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="job-list">
+                    <div class="thumb">
+                      <a href="#">
+                        <img src="images/job/company-logo-3.png" class="img-fluid" alt="">
+                      </a>
+                    </div>
+                    <div class="body">
+                      <div class="content">
+                        <h4><a href="job-details.html">Land Development Marketer</a></h4>
+                        <div class="info">
+                          <span class="company"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-briefcase"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>Realouse</a></span>
+                          <span class="office-location"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>Washington</a></span>
+                          <span class="job-type freelance"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>Freelance</a></span>
+                        </div>
+                      </div>
+                      <div class="more">
+                        <div class="buttons">
+                          <a href="#" class="button" data-toggle="modal" data-target="#apply-popup-id">Apply Now</a>
+                          <a href="#" class="favourite"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></a>
+                        </div>
+                        <p class="deadline">Deadline: Oct 31,  2019</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="job-list">
+                    <div class="thumb">
+                      <a href="#">
+                        <img src="images/job/company-logo-10.png" class="img-fluid" alt="">
+                      </a>
+                    </div>
+                    <div class="body">
+                      <div class="content">
+                        <h4><a href="job-details.html">UI Designer</a></h4>
+                        <div class="info">
+                          <span class="company"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-briefcase"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>Degoin</a></span>
+                          <span class="office-location"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>San Francisco</a></span>
+                          <span class="job-type part-time"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>Part Time</a></span>
+                        </div>
+                      </div>
+                      <div class="more">
+                        <div class="buttons">
+                          <a href="#" class="button" data-toggle="modal" data-target="#apply-popup-id">Apply Now</a>
+                          <a href="#" class="favourite"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></a>
+                        </div>
+                        <p class="deadline">Deadline: Oct 31,  2019</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="job-list">
+                    <div class="thumb">
+                      <a href="#">
+                        <img src="images/job/company-logo-3.png" class="img-fluid" alt="">
+                      </a>
+                    </div>
+                    <div class="body">
+                      <div class="content">
+                        <h4><a href="job-details.html">Land Development Marketer</a></h4>
+                        <div class="info">
+                          <span class="company"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-briefcase"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>Realouse</a></span>
+                          <span class="office-location"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>Washington</a></span>
+                          <span class="job-type freelance"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>Freelance</a></span>
+                        </div>
+                      </div>
+                      <div class="more">
+                        <div class="buttons">
+                          <a href="#" class="button" data-toggle="modal" data-target="#apply-popup-id">Apply Now</a>
+                          <a href="#" class="favourite"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></a>
+                        </div>
+                        <p class="deadline">Deadline: Oct 31,  2019</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="job-list">
+                    <div class="thumb">
+                      <a href="#">
+                        <img src="images/job/company-logo-1.png" class="img-fluid" alt="">
+                      </a>
+                    </div>
+                    <div class="body">
+                      <div class="content">
+                        <h4><a href="job-details.html">Designer Required</a></h4>
+                        <div class="info">
+                          <span class="company"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-briefcase"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>Theoreo</a></span>
+                          <span class="office-location"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>New York City</a></span>
+                          <span class="job-type full-time"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>Full Time</a></span>
+                        </div>
+                      </div>
+                      <div class="more">
+                        <div class="buttons">
+                          <a href="#" class="button" data-toggle="modal" data-target="#apply-popup-id">Apply Now</a>
+                          <a href="#" class="favourite"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></a>
+                        </div>
+                        <p class="deadline">Deadline: Oct 31,  2019</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="job-list">
+                    <div class="thumb">
+                      <a href="#">
+                        <img src="images/job/company-logo-2.png" class="img-fluid" alt="">
+                      </a>
+                    </div>
+                    <div class="body">
+                      <div class="content">
+                        <h4><a href="job-details.html">Project Manager</a></h4>
+                        <div class="info">
+                          <span class="company"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-briefcase"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>Degoin</a></span>
+                          <span class="office-location"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>San Francisco</a></span>
+                          <span class="job-type part-time"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>Part Time</a></span>
+                        </div>
+                      </div>
+                      <div class="more">
+                        <div class="buttons">
+                          <a href="#" class="button" data-toggle="modal" data-target="#apply-popup-id">Apply Now</a>
+                          <a href="#" class="favourite"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></a>
+                        </div>
+                        <p class="deadline">Deadline: Oct 31,  2019</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="job-list">
+                    <div class="thumb">
+                      <a href="#">
+                        <img src="images/job/company-logo-8.png" class="img-fluid" alt="">
+                      </a>
+                    </div>
+                    <div class="body">
+                      <div class="content">
+                        <h4><a href="job-details.html">Restaurant Team Member - Crew </a></h4>
+                        <div class="info">
+                          <span class="company"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-briefcase"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>Geologitic</a></span>
+                          <span class="office-location"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>Las Vegas</a></span>
+                          <span class="job-type temporary"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>Temporary</a></span>
+                        </div>
+                      </div>
+                      <div class="more">
+                        <div class="buttons">
+                          <a href="#" class="button" data-toggle="modal" data-target="#apply-popup-id">Apply Now</a>
+                          <a href="#" class="favourite"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></a>
+                        </div>
+                        <p class="deadline">Deadline: Oct 31,  2019</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="job-list">
+                    <div class="thumb">
+                      <a href="#">
+                        <img src="images/job/company-logo-9.png" class="img-fluid" alt="">
+                      </a>
+                    </div>
+                    <div class="body">
+                      <div class="content">
+                        <h4><a href="job-details.html">Nutrition Advisor</a></h4>
+                        <div class="info">
+                          <span class="company"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-briefcase"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>Theoreo</a></span>
+                          <span class="office-location"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>New York City</a></span>
+                          <span class="job-type full-time"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>Full Time</a></span>
+                        </div>
+                      </div>
+                      <div class="more">
+                        <div class="buttons">
+                          <a href="#" class="button" data-toggle="modal" data-target="#apply-popup-id">Apply Now</a>
+                          <a href="#" class="favourite"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></a>
+                        </div>
+                        <p class="deadline">Deadline: Oct 31,  2019</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="job-list">
+                    <div class="thumb">
+                      <a href="#">
+                        <img src="images/job/company-logo-1.png" class="img-fluid" alt="">
+                      </a>
+                    </div>
+                    <div class="body">
+                      <div class="content">
+                        <h4><a href="job-details.html">Designer Required</a></h4>
+                        <div class="info">
+                          <span class="company"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-briefcase"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>Theoreo</a></span>
+                          <span class="office-location"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>New York City</a></span>
+                          <span class="job-type full-time"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>Full Time</a></span>
+                        </div>
+                      </div>
+                      <div class="more">
+                        <div class="buttons">
+                          <a href="#" class="button" data-toggle="modal" data-target="#apply-popup-id">Apply Now</a>
+                          <a href="#" class="favourite"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></a>
+                        </div>
+                        <p class="deadline">Deadline: Oct 31,  2019</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="job-list">
+                    <div class="thumb">
+                      <a href="#">
+                        <img src="images/job/company-logo-2.png" class="img-fluid" alt="">
+                      </a>
+                    </div>
+                    <div class="body">
+                      <div class="content">
+                        <h4><a href="job-details.html">Project Manager</a></h4>
+                        <div class="info">
+                          <span class="company"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-briefcase"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>Degoin</a></span>
+                          <span class="office-location"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>San Francisco</a></span>
+                          <span class="job-type part-time"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>Part Time</a></span>
+                        </div>
+                      </div>
+                      <div class="more">
+                        <div class="buttons">
+                          <a href="#" class="button" data-toggle="modal" data-bs-toggle="modal" data-bs-target="#apply-popup-id">Apply Now</a>
+                          <a href="#" class="favourite"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></a>
+                        </div>
+                        <p class="deadline">Deadline: Oct 31,  2019</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+
+              <!--   <div class="pagination-list text-center">
+                  <nav class="navigation pagination">
+                    <div class="nav-links">
+                      <a class="prev page-numbers" href="#"><i class="fa fa-chevron-left"></i></a>
+                      <a class="page-numbers" href="#">1</a>
+                      <span aria-current="page" class="page-numbers current">2</span>
+                      <a class="page-numbers" href="#">3</a>
+                      <a class="page-numbers" href="#">4</a>
+                      <a class="next page-numbers" href="#"><i class="fa fa-chevron-right"></i></a>
+                    </div>
+                  </nav>                
+                </div> -->
+              
+              </div>
+
+              <!--
+
+              <div class="job-filter-wrapper">
+                <div class="selected-options same-pad">
+                  <div class="selection-title">
+                    <h4>You Selected</h4>
+                    <a href="#">Clear All</a>
+                  </div>
+                  <ul class="filtered-options">
+                  </ul>
+                </div>
+                <div class="job-filter-dropdown same-pad category">
+                  <div class="dropdown bootstrap-select"><select class="selectpicker" id="search-category" tabindex="-98">
+                    <option value="" selected="">Category</option>
+                    <option value="california">Accounting / Finance</option>
+                    <option value="california">Education</option>
+                    <option value="california">Design &amp; Creative</option>
+                    <option value="california">Health Care</option>
+                    <option value="california">Engineer &amp; Architects</option>
+                    <option value="california">Marketing &amp; Sales</option>
+                    <option value="california">Garments / Textile</option>
+                    <option value="california">Customer Support</option>
+                    <option value="california">Digital Media</option>
+                    <option value="california">Telecommunication</option>
+                  </select><button type="button" class="btn dropdown-toggle bs-placeholder btn-light" data-toggle="dropdown" role="button" data-id="search-category" title="Category"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">Category</div></div> </div></button><div class="dropdown-menu " role="combobox"><div class="inner show" role="listbox" aria-expanded="false" tabindex="-1"><ul class="dropdown-menu inner show"></ul></div></div></div>
+                </div>
+                <div class="job-filter-dropdown same-pad location">
+                  <div class="dropdown bootstrap-select"><select class="selectpicker" id="search-location" tabindex="-98">
+                    <option value="" selected="">Location</option>
+                    <option value="california">Chicago</option>
+                    <option value="california">New York City</option>
+                    <option value="california">San Francisco</option>
+                    <option value="california">Washington</option>
+                    <option value="california">Boston</option>
+                    <option value="california">Los Angeles</option>
+                    <option value="california">Seattle</option>
+                    <option value="california">Las Vegas</option>
+                    <option value="california">San Diego</option>
+                  </select><button type="button" class="btn dropdown-toggle bs-placeholder btn-light" data-toggle="dropdown" role="button" data-id="search-location" title="Location"><div class="filter-option"><div class="filter-option-inner"><div class="filter-option-inner-inner">Location</div></div> </div></button><div class="dropdown-menu " role="combobox"><div class="inner show" role="listbox" aria-expanded="false" tabindex="-1"><ul class="dropdown-menu inner show"></ul></div></div></div>
+                </div>
+                <div data-id="job-type" class="job-filter job-type same-pad">
+                  <h4 class="option-title">Job Type</h4>
+                  <ul>
+                    <li class="full-time"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><a href="#" data-attr="Full Time">Full Time</a></li>
+                    <li class="part-time"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><a href="#" data-attr="Part Time">Part Time</a></li>
+                    <li class="freelance"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><a href="#" data-attr="Freelance">Freelance</a></li>
+                    <li class="temporary"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg><a href="#" data-attr="Temporary">Temporary</a></li>
+                  </ul>
+                </div>
+                <div data-id="experience" class="job-filter experience same-pad">
+                  <h4 class="option-title">Experience</h4>
+                  <ul>
+                    <li><a href="#" data-attr="Fresh">Fresh</a></li>
+                    <li><a href="#" data-attr="Less than 1 year">Less than 1 year</a></li>
+                    <li><a href="#" data-attr="2 Year">2 Year</a></li>
+                    <li><a href="#" data-attr="3 Year">3 Year</a></li>
+                    <li><a href="#" data-attr="4 Year">4 Year</a></li>
+                    <li><a href="#" data-attr="5 Year">5 Year</a></li>
+                    <li><a href="#" data-attr="Avobe 5 Years">Avobe 5 Years</a></li>
+                  </ul>
+                </div>
+                <div class="job-filter same-pad">
+                  <h4 class="option-title">Salary Range</h4>
+                  <div class="price-range-slider">
+                    <div class="nstSlider" data-range_min="0" data-range_max="10000" data-cur_min="0" data-cur_max="6130">
+                      <div class="bar" style="left: 0px; width: 391px;"></div>
+                      <div class="leftGrip" tabindex="0" style="left: 0px;"></div>
+                      <div class="rightGrip" tabindex="0" style="left: 376px;"></div>
+                      <div class="grip-label">
+                        <span class="leftLabel">0</span>
+                        <span class="rightLabel">6130</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div data-id="post" class="job-filter post same-pad">
+                  <h4 class="option-title">Date Posted</h4>
+                  <ul>
+                    <li><a href="#" data-attr="Last hour">Last hour</a></li>
+                    <li><a href="#" data-attr="Last 24 hour">Last 24 hour</a></li>
+                    <li><a href="#" data-attr="Last 7 days">Last 7 days</a></li>
+                    <li><a href="#" data-attr="Last 14 days">Last 14 days</a></li>
+                    <li><a href="#" data-attr="Last 30 days">Last 30 days</a></li>
+                  </ul>
+                </div>
+                <div data-id="gender" class="job-filter same-pad gender">
+                  <h4 class="option-title">Gender</h4>
+                  <ul>
+                    <li><a href="#" data-attr="Male">Male</a></li>
+                    <li><a href="#" data-attr="Female">Female</a></li>
+                  </ul>
+                </div>
+                <div data-id="qualification" class="job-filter qualification same-pad">
+                  <h4 class="option-title">Qualification</h4>
+                  <ul>
+                    <li><a href="#" data-attr="Matriculation">Matriculation</a></li>
+                    <li><a href="#" data-attr="Intermidiate">Intermidiate</a></li>
+                    <li><a href="#" data-attr="Gradute">Gradute</a></li>
+                  </ul>
+                </div>
+
+              </div>  -->
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+              <!--------    ----------------->
+
+
+            
+            
+
+
+            <div class="col-sm-12 col-lg-4 col-xl-3 offset-top-60 offset-md-top-0">
+              <div class="inset-lg-left-15">
+                <div class="row row-30">
+                  <div class="col-sm-12 col-md-6 col-lg-12">
+                    <nav class="page-nav">
+                      <ul class="page-nav-list">
+                        <li><a href="about.html">About Us</a></li>
+                        <li class="active"><a href="careers.html">Careers</a></li>
+                        <li><a href="team.html">Team</a></li>
+                      </ul>
+                    </nav>
+                  </div>
+                  <div class="col-sm-12 col-md-6 col-lg-12">
+                    <div class="banner bg-curious-blue offset-top-xl">
+                      <h4>Do You Need Help?</h4>
+                      <p>
+                        Contact us at the IMass
+                        office nearest to you or submit
+                        a business inquiry online.
+                      </p><a class="btn btn-sm btn-white-outline" href="contacts.html">Contact Us</a>
+                    </div>
+                  </div>
+                  <div class="col-sm-12 col-md-6 col-lg-12 offset-top-41 offset-sm-top-0 offset-md-top-41">
+                    <!-- Owl Carousel-->
+                    <div class="owl-carousel" data-sm-items="2" data-md-items="1" data-lg-items="1" data-xl-items="1" data-xxl-items="1" data-stage-padding="0" data-margin="20" data-sm-stage-padding="0" data-dots="true" data-autoplay="true" data-owl="{&quot;dots&quot;:true,&quot;nav&quot;:false,&quot;autoplayTimeout&quot;:3500}">
+                      <div class="item">
+                        <blockquote class="quote-variant-1 quote-variant-1-smaller">
+                          <div class="quote-header"><img src="images/home-4-72x72.jpg" alt="" width="72" height="72"/>
+                          </div>
+                          <div class="quote-body">
+                            <q>
+                              Wow, I'm so happy with
+                              	your service. You managed
+                              	to exceed my expectations!
+                              You guys are very efficient
+                              
+                            </q>
+                          </div>
+                          <div class="quote-meta">
+                            <cite>Adam Watson</cite>
+                            <p class="text-gray-light">(CEO & Founder)</p>
+                          </div>
+                        </blockquote>
+                      </div>
+                      <div class="item">
+                        <blockquote class="quote-variant-1 quote-variant-1-smaller">
+                          <div class="quote-header"><img src="images/home-5-72x72.jpg" alt="" width="72" height="72"/>
+                          </div>
+                          <div class="quote-body">
+                            <q>
+                              Hi, guys! You've solved my
+                              problem in no time! Your services and customer care are great!
+                              
+                            </q>
+                          </div>
+                          <div class="quote-meta">
+                            <cite>Louise Smith</cite>
+                            <p class="text-gray-light">(CEO & Founder)</p>
+                          </div>
+                        </blockquote>
+                      </div>
+                      <div class="item">
+                        <blockquote class="quote-variant-1 quote-variant-1-smaller">
+                          <div class="quote-header"><img src="images/home-6-72x72.jpg" alt="" width="72" height="72"/>
+                          </div>
+                          <div class="quote-body">
+                            <q>
+                              Great organization!! Your
+                              prompt answer became a pleasant
+                              surprise for me. Thank you!
+                              
+                            </q>
+                          </div>
+                          <div class="quote-meta">
+                            <cite>Jack Walsh</cite>
+                            <p class="text-gray-light">(CEO & Founder)</p>
+                          </div>
+                        </blockquote>
+                      </div>
+                    </div>
+                    <div class="offset-top-30"><a class="btn btn-block btn-xxl btn-outline-thin btn-mercury-outline btn-icon btn-icon-left" href="#"><span class="icon icon-sm icon-froly fa-file-pdf-o"></span>Company presentation</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Brands carousel-->
+      <section class="section section-md bg-alabaster">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="owl-carousel owl-carousel-centered owl-style-1" data-items="1" data-sm-items="2" data-md-items="4" data-lg-items="6" data-xl-items="6" data-xxl-items="6" data-owl="{&quot;dots&quot;:false,&quot;nav&quot;:false,&quot;autoplayTimeout&quot;:3500}">
+                <div class="item"><a class="link-image" href="#">
+                    <figure><img src="images/home-7-170x75.png" alt="" width="170" height="75"/>
+                    </figure></a></div>
+                <div class="item"><a class="link-image" href="#">
+                    <figure><img src="images/home-8-170x75.png" alt="" width="170" height="75"/>
+                    </figure></a></div>
+                <div class="item"><a class="link-image" href="#">
+                    <figure><img src="images/home-9-170x75.png" alt="" width="170" height="75"/>
+                    </figure></a></div>
+                <div class="item"><a class="link-image" href="#">
+                    <figure><img src="images/home-10-170x75.png" alt="" width="170" height="75"/>
+                    </figure></a></div>
+                <div class="item"><a class="link-image" href="#">
+                    <figure><img src="images/home-11-170x75.png" alt="" width="170" height="75"/>
+                    </figure></a></div>
+                <div class="item"><a class="link-image" href="#">
+                    <figure><img src="images/home-12-170x75.png" alt="" width="170" height="75"/>
+                    </figure></a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Page Footer-->
+      <footer class="footer-classic">
+        <div class="section-md section-md-75 bg-river-bed">
+          <div class="container text-center text-md-start">
+            <div class="row justify-content-sm-center row-30">
+              <div class="col-sm-12 col-md-6 col-xl-3">
+                <!--Brand--><a class="brand" href="index.html"><img class="brand-logo-dark" src="images/logo-default-158x37.png" alt="" width="79" height="18"/><img class="brand-logo-light" src="images/logo-inverse-158x37.png" alt="" width="79" height="18"/></a>
+                <p>
+                  Welcome to the leading company
+                  delivering services that combine
+                  quality, reliability and compliance!
+                </p>
+                <div class="elements-group-1"><span class="small fst-italic">Follow Us:</span>
+                  <ul class="list-inline">
+                    <li><a class="icon icon-xxs icon-circle icon-dark icon-white-filled fa-facebook" href="#"></a></li>
+                    <li><a class="icon icon-xxs icon-circle icon-dark icon-white-filled fa-twitter" href="#"></a></li>
+                    <li><a class="icon icon-xxs icon-circle icon-dark icon-white-filled fa-google-plus" href="#"></a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-6 col-xl-3">
+                <h4>Navigation</h4>
+                <hr class="hr-variant-1">
+                <nav class="footer-nav-wrap text-sm-start">
+                  <div class="footer-nav-column">
+                    <ul class="footer-nav">
+                      <li><a href="about.html">Home</a></li>
+                      <li><a href="about.html">About</a></li>
+                      <li><a href="blog.html">Contacts</a></li>
+                      <!-- <li><a href="contacts.html">blogs</a></li>
+                      <li><a href="typography.html">Typography</a></li> -->
+                    </ul>
+                  </div>
+                  <div class="footer-nav-column">
+                    <ul class="footer-nav">
+                      <li><a href="services.html">Industries</a></li>
+                      <li><a href="careers.html">Careers</a></li>
+                      <li><a href="team.html">Our team</a></li>
+                    </ul>
+                  </div>
+                </nav>
+              </div>
+              <div class="col-sm-12 col-md-6 col-xl-3">
+                <h4>Contact info</h4>
+                <hr class="hr-variant-1">
+                <address class="contact-info d-inline-block">
+                  <ul class="contact-info-list">
+                    <li><span class="icon icon-sm icon-picton-blue fa-phone"></span><span class="fw-bold"><a href="tel:#">+91 701-389-1885</a></span></li>
+                    <li><span class="icon icon-sm icon-picton-blue fa-envelope-o"></span><span><a href="mailto:#">info@IMassSolutions.com</a></span></li>
+                    <li><span class="icon icon-sm icon-picton-blue fa-clock-o"></span><span>Mon - Sat: 9:00 - 18:00</span></li>
+                    <li><span class="icon icon-sm icon-picton-blue fa-map-marker"></span><span><a href="#"><span class="fw-bold"></span> Hylum Colony, Venkatgiri,<span>Hyderabad, TG , India -  500045</span></a></span></li>
+                  </ul>
+                </address>
+              </div>
+              <div class="col-sm-12 col-md-6 col-xl-3">
+                <h4>Newsletter</h4>
+                <hr class="hr-variant-1">
+                <p>Get latest updates and offers.</p>
+                <!-- RD Mailform-->
+                <form class="rd-mailform rd-mailform-inline max-width-300" data-form-output="form-output-global" data-form-type="subscribe" method="post" action="bat/rd-mailform.php">
+                  <div class="form-wrap">
+                    <label class="form-label" for="footer-contact-email">E-Mail</label>
+                    <input class="form-input" id="footer-contact-email" type="email" name="email" data-constraints="@Required @Email">
+                  </div>
+                  <button class="btn btn-picton-blue" type="submit">Send</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-aside">
+          <div class="container text-center">
+            <p class="rights"><span>&copy;&nbsp;</span><span class="copyright-year"></span><span>IMass</span><span class="m-0">.&nbsp;</span><a href="privacy.html">Privacy Policy</a></p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+
+
+    <div class="apply-popup" id1="apply-popup-id">
+                    <div class="modal fade" id="apply-popup-id" tabindex="-1" role="dialog" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit"><path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path><polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon></svg>APPLY FOR THIS JOB</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="clearcontent();">
+                              <span aria-hidden="true">×</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            
+                            <h5  id="JobDetails" class="HTitle"></h5> 
+
+                            <h5  id="Status" class="HTitle"></h5> 
+  
+                            <div action="#" id="ContactForm">
+                          
+                              <div class="form-group">
+                                <input type="text" placeholder="Full Name" class="form-control" name="name" id="FName">
+                              </div>
+                          
+                              <div class="form-group">
+                                <input type="email" placeholder="Email Address" class="form-control" name="email" id="EmailId">
+                              </div>
+                          
+                              <div class="form-group">
+                                <input type="phone" placeholder="Phone Number" class="form-control" name="phone" id="PhoneNumber">
+                              </div>
+                          
+                              <div class="form-group">
+                                <input type="text" placeholder="subject" class="form-control" name="subjent" id="subject" style="display:none;" value="Application for job">
+                                <textarea class="form-control" placeholder="Message" name="message" id="message"></textarea>
+                              </div>
+
+                              <div class="form-group file-input-wrap">
+                                <label for="up-cv">
+                                  <!-- <input id="up-cv" type="file" name="file_attach[]" multiple="" onchange=" $('#filecount').text( $('#up-cv').get(0).files.length + ' -- files selected'  );"> -->
+
+                                  <input id="up-cv" type="file" name="file_attach" multiple="" onchange=" $('#filecount').text( $('#up-cv').get(0).files.length + ' -- files selected'  );">
+
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-upload-cloud"><polyline points="16 16 12 12 8 16"></polyline><line x1="12" y1="12" x2="12" y2="21"></line><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"></path><polyline points="16 16 12 12 8 16"></polyline></svg>
+                                  <span>Upload your resume <span>(pdf,zip,doc,docx)</span></span>
+                                  <span id="filecount"></span>
+                                </label>
+                              </div>
+                              
+                              <!-- <div class="more-option">
+                                <input class="custom-radio" type="checkbox" id="radio-4" name="termsandcondition">
+                                <label for="radio-4">
+                                  <span class="dot"></span> I accept the <a href="#">terms & conditions</a>
+                                </label>
+                              </div> --> 
+                            <button class="button primary-bg btn-block btnsend" onclick="send()">Apply Now</button>
+                            <br>
+                              <div id="contact_results"></div>
+
+                          </div> 
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+    <div class="snackbars" id="form-output-global"></div>
+    <script src="js/core.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script> -->
+    <script src="js/script.js"></script>
+
+    <script src="js/basic.js"></script>
+
+    <script type="text/javascript">
+      
+      ////alert('2');
+
+      /*  var TransferControl1=null,TransferControl2=null;GlobalCtrl=null,globaldata=null , uploadDocType='CandidateResume',uploadFolderName='Resumes';
+          var  hst , db , dusr , dp , companyid="imass",max=5,ImageCount=0,hook,gcompanyname,UserName,UserId,RollId,searchmode='Jobs',isfile=false,noofimages=0;
+          var queries = [];isSpecificFileId=false;  ImageColumn='';ImageTable='';HTTPReferer='';
+          
+
+
+      $.ajax({
+            url: 'basic.php',
+            type:'POST',
+            cache: false,
+            datatype:'json',
+            data: { companyid:companyid },
+            timeout:0,
+            success: function(res){
+              
+                //alert(res + "\n"+ companyid);
+              
+                data1 = $.parseJSON(res);
+
+                alert(data1[0].data);
+                
+                hst = data1[0].hostname ; dusr = data1[0].username; dp = data1[0].password; db =data1[0].databasename; //apf = data1[0].apf; gcompanyname = data1[0].companyname;
+
+                HTTPReferer = data1[0].referer ; //HTTPReferer
+
+                $.getScript(data1[0].data, function( data, textStatus, jqxhr ) {
+                  //console.log( data ); // Data returned
+                  //console.log( textStatus ); // Success
+                  //console.log( jqxhr.status ); // 200
+                  alert( "Load was performed." );
+                  showJobs();  
+                });
+                
+                
+                
+                //startup();
+
+            }
+          });*/
+
+       jobtitle=''; JobId=''; // showJobs();
+
+function showJobs()
+{
+        queries = [];
+
+        //QryFileInfo = "select f.FileId , Extension  from  fileinfo f , CandidateMaster c where  f.FileId LIKE concat(c.CandidateId , '-%')  and f.DocumentType = 'CandidateResume'" +  ($.trim(criteria)!=''? " and ( " + criteria + " )" : " ") ;
+        
+        QryFileInfo = "select * From JobMaster ";  
+
+        queries.push({TransQry:QryFileInfo,formattype:'json',keyname:"JobInfo"});
+
+        QArray = JSON.stringify(queries); // alert(JSON.stringify(QArray));
+
+        getCustomData(QArray,putJobsIntoList); 
+
+}
+
+function putJobsIntoList(mdata)
+{
+    //alert(JSON.stringify(mdata)); 
+
+    joblist = '';
+
+    $.each(mdata[0].JobInfo,function(i,obj)
+    {
+
+
+      joblist= joblist + '<div class="job-list" id="J-'+ obj.JobId +'">';
+                    
+                    joblist= joblist + '<div class="thumb col-2 col-sm-6 col-md-2">';
+                      joblist= joblist + '<a href="#">';
+                        joblist= joblist + '<img src="images/JobCandidate.png" class="img-fluid" alt="">';
+                      joblist= joblist + '</a>';
+                    joblist= joblist + '</div>';
+
+                    joblist= joblist + '<div class="body col-10 col-md-10 col-sm-12">';
+
+                      joblist= joblist + '<div class="content col-8 col-md-8">';
+                        
+
+                        joblist= joblist + '<h4><a href="job-details.html">' +  obj.JobTitle  + '</a></h4>';
+
+                        joblist= joblist + '<div class="info">';
+                        
+                          joblist= joblist + '<span class="company col-md-1 col-sm-3 "><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-briefcase"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>'+ obj.CompanyName +'</a>';
+                          joblist= joblist + '</span>';
+
+                          joblist= joblist + '<span class="office-location col-md-1 col-sm-3"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"> </path><circle cx="12" cy="10" r="3"></circle></svg>'+ obj.Location +'</a>';
+
+                          joblist= joblist + '</span>';
+                          joblist= joblist + '<span class="job-type full-time col-md-1 col-sm-3"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>'+ obj.JobType +'</a>';
+                          joblist= joblist + '</span>';
+                        
+                        joblist= joblist + '</div>';
+
+                      joblist= joblist + '</div>';
+                      
+                      joblist= joblist + '<div class="more col-5 col-md-5 col-sm-6 text-left col-md-5">';
+                        joblist= joblist + '<div class="buttons">';
+                          joblist= joblist + '<a href="#" class="button" data-toggle1="modal" data-bs-toggle="modal" data-bs-target="#apply-popup-id" onclick="JobTitle=\'' + obj.JobTitle + '\';JobId=\'' + obj.JobId + '\';showPopup();">Apply Now</a>';
+                          joblist= joblist + '<a href="#" class="favourite"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></a>';
+                        joblist= joblist + '</div>';
+                        joblist= joblist + '<p class="deadline" style="padding:0;margin-left:-10px;" >Deadline: '+ obj.Deadline +'</p>';
+                      joblist= joblist + '</div>';
+
+                    joblist= joblist + '</div>';
+
+                  joblist= joblist + '</div>';
+
+      })   ;
+
+      $('.job-filter-result').html( joblist );             
+
+}
+
+function showPopup()
+{     
+      //alert(JobId + '---' +JobTitle);
+
+      $('#JobDetails').html('JobId :' + JobId + '&nbsp; &nbsp;&nbsp; &nbsp; JobTitle :' +  JobTitle);
+
+      $('#apply-popup-id').modal();
+}
+
+function send()
+{
+
+          //alert('00000');
+          $('.btnsend').attr('disabled' , true);
+
+          $("#Status").show().html('<img src="images/preloader.gif">');  
+
+          $('#subject').val('Application for job : '+ JobTitle + ', JobId :' + JobId);  //alert(JobId + '---' +JobTitle);
+
+          //data to be sent to server        
+          var m_data =  new FormData(); //alert('1');
+
+          m_data.append('first_name', $('#FName').val());
+        
+          m_data.append('emailfrom', $('#EmailId').val()); m_data.append('emailto', 'info@imasssolutions.com' );//  alert('2');
+        
+          m_data.append('subject', $('#subject').val() );  //+ '<br> ' + $('#JobDetails').val()
+        
+          m_data.append('message',  $('#message').val() );  m_data.append('phone', $('#PhoneNumber').val() ); // alert('3');
+        
+          m_data.append( 'file_attach', $('input[name=file_attach]')[0].files[0] ); // alert('4');
+
+          //instead of $.post() we are using $.ajax()
+          //that's because $.ajax() has more options and flexibly.
+          url = "sendmail.php";
+
+          /*$.ajax({
+            url: 'sendmail.php',
+            data: m_data,
+            processData: false,
+            contentType: false,
+            type: 'POST',
+            dataType: 'json',
+            success: function(response) {*/
+
+
+          $.ajax({
+            url: url,
+            type: "POST",
+            data: m_data,
+            processData: false,
+            contentType: false,
+            success: function (res) 
+            {
+
+              response =  $.parseJSON(res);
+            
+              //alert(response);
+
+              //load json data from server and output message    
+              if (response.type == 'error') { //load json data from server and output message    
+                output = '<div class="error">' + response.text + '</div>';
+              } 
+              else {
+                output = '<div class="success">' + response.text + '</div>';
+              }
+
+              $("#Status").hide().html(output); //.slideDown();
+
+              $('#Status').fadeIn('slow', function () {
+                $(this).delay(50000).fadeOut('slow');
+                clearcontent(); $('.btnsend').removeAttr('disabled');
+              });
+            }
+          });
+
+
+}
+
+function SendMailwithAttachment()
+{
+        var proceed = true;  alert('0');
+
+        /*if (proceed) //everything looks good! proceed...
+        {
+          
+          $('#subject').val('Application for job : '+ JobTitle + ', JobId :' + JobId);  //alert(JobId + '---' +JobTitle);
+
+          //data to be sent to server        
+          var m_data = new FormData(); alert('1');
+          m_data.append('first_name', $('#FName').val());
+        
+          m_data.append('emailfrom', $('#EmailId').val()); m_data.append('emailto', 'info@imasssolutions.com' );  alert('2');
+        
+          m_data.append('subject', $('#subject').val() );  //+ '<br> ' + $('#JobDetails').val()
+        
+          m_data.append('message',  $('#message').val() );  m_data.append('phone', $('#PhoneNumber').val() );  alert('3');
+        
+          m_data.append('file_attach', $('input[name=file_attach]')[0].files[0]);  alert('4');
+
+          //instead of $.post() we are using $.ajax()
+          //that's because $.ajax() has more options and flexibly.
+
+          $.ajax({
+            url: 'SendMailWithAttachment.php',
+            data: m_data,
+            processData: false,
+            contentType: false,
+            type: 'POST',
+            dataType: 'json',
+            success: function(response) {
+              //load json data from server and output message    
+              if (response.type == 'error') { //load json data from server and output message    
+                output = '<div class="error">' + response.text + '</div>';
+              } 
+              else {
+                output = '<div class="success">' + response.text + '</div>';
+              }
+
+              alert(output);
+
+              $("#Status").hide().html(output).slideDown();
+            }
+          });
+
+           alert('5');
+        }*/
+
+      
+    
+}
+
+function clearcontent()
+{
+  $('#apply-popup-id').modal('hide');
+
+  clearPostform("#ContactForm");
+}
+
+
+/*function callsearch()
+{
+  //if (localStorage.getItem('searchstatus') =='outsidesearch')
+  //  {
+
+      //alert('here');
+
+      Keywords = $.trim( sessionStorage.getItem('Keywords')  ); searchlocation = $.trim( sessionStorage.getItem('Location') );  searchcategory = $.trim( sessionStorage.getItem('Category') );
+
+      //alert(Keywords + '---' + searchlocation + '---' + searchcategory);
+
+        //searchdata(Keywords , searchlocation);
+
+        testdata(Keywords , searchlocation);
+
+        //setTimeout(testdata(Keywords , searchlocation),2000);
+        
+        
+          //"SELECT * FROM TABLE  ORDER BY RAND()  LIMIT N"
+
+          //alert( $sql ); 
+
+          //$('#LocationPro').val($sql);
+
+        //getData($sql,QueryTable); 
+
+  //  }
+}
+
+function testdata(keywords,searchlocation)
+{
+  //alert('i am here');
+
+  $sql='';criteria="";QueryTable=""; searchmode='Jobs';
+
+    //alert( 'k ' + keywords + '---'+searchlocation+ '---'+searchmode);
+
+
+      if (searchmode =='Jobs') 
+      {  
+            
+        
+           if ( (Keywords!='') && (searchlocation!='') )
+           {
+               criteria = " Title like  '%" +  String(keywords) + "\%' or Description like  '%" +  String(keywords) + "\%' or Responsibilities like  '%" +  String(keywords) + "\%' or Qualifications like  '%" +  String(keywords) + "\%' or SkillSet like  '%" +  String(keywords) + "\%' or Location like  '%" +  String(searchlocation) + "\%' or City like  '%" +  String(searchlocation) + "\%' or State like  '%" +  String(searchlocation) + "\%' or Country like '%" +  String(searchlocation) + "\%'  "; 
+            
+          
+        }
+        else if ( (Keywords!='') && (searchlocation=='') )
+        {
+          criteria = " Title like  '%" +  String(keywords) + "\%' or Description like  '%" +  String(keywords) + "\%' or Responsibilities like  '%" +  String(keywords) + "\%' or Qualifications like  '%" +  String(keywords) + "\%' or SkillSet like  '%" +  String(keywords) + "\%' "; 
+
+        } 
+        else if ( (keywords=='') && (searchlocation!='') )
+        {
+               criteria = " Location like  '%" +  String(searchlocation) + "\%' or City like  '%" +  String(searchlocation) + "\%' or State like  '%" +  String(searchlocation) + "\%' or Country like '%" +  String(searchlocation) + "\%' "; 
+        
+      
+        } 
+        else if ( (keywords=='') && (searchlocation=='') )
+        {
+          
+            criteria = "";
+            
+        } 
+          
+
+            $sql = "select * from JobMaster " + ($.trim(criteria)!=''? " where " + criteria : " ")  +  " ORDER BY RAND()  LIMIT 90";  
+            QueryTable="JobMaster";
+
+      }
+      else
+      {
+        
+         if ( (Keywords!='') && (searchlocation!='') )
+           {
+           criteria = " CurrentPosition like  '%" +  String(keywords) + "\%' or CareerLevel like  '%" +  String(keywords) + "\%' or Experience like  '%" +  String(keywords) + "\%' or Qualifications like  '%" +  String(keywords) + "\%' or SkillSet like  '%" +  String(keywords) +  "\%' or City like  '%" +  String(searchlocation)  + "\%' or State like  '%" +  String(searchlocation)  + "\%' or Country like  '%" +  String(searchlocation) + "\%'" ; 
+         }
+         else if ( (Keywords!='') && (searchlocation=='') )
+         {
+           criteria = " CurrentPosition like  '%" +  String(keywords) + "\%' or CareerLevel like  '%" +  String(keywords) + "\%' or Experience like  '%" +  String(keywords) + "\%' or Qualifications like  '%" +  String(keywords) + "\%' or SkillSet like  '%" +  String(keywords) + "\%' or CurrentLocation like  '%" +  String(searchlocation) + "\%'" ; 
+
+         }  
+         else if ( (keywords=='') && (searchlocation!='') )
+         {
+            criteria = " CurrentLocation like  '%" +  String(searchlocation) + "\%' or ReLocation like  '%" +  String(searchlocation) +  String(searchlocation) +  "\%' or City like  '%" +  String(searchlocation)  + "\%' or State like  '%" +  String(searchlocation)  + "\%' or Country like  '%" +  String(searchlocation) + "\%'" ; 
+
+         }
+         else if ( (keywords=='') && (searchlocation=='') )
+         {
+          criteria = "";
+         }  
+
+          $sql = "select * from CandidateMaster  " + ($.trim(criteria)!=''? " where " + criteria : " ")  +  " ORDER BY RAND()  LIMIT 90"; 
+          
+          QueryTable="CandidateMaster";
+
+
+      } 
+      
+      queries=[];
+
+      queries.push({TransQry:$sql,formattype:'json',keyname:'info'});
+
+      if (searchmode=="Candidates")
+      { 
+        QryFileInfo = "select f.FileId , Extension  from  fileinfo f , CandidateMaster c where  f.FileId LIKE concat(c.CandidateId , '-%')  and f.DocumentType = 'CandidateResume'" +  ($.trim(criteria)!=''? " and ( " + criteria + " )" : " ") ;
+
+        queries.push({TransQry:QryFileInfo,formattype:'json',keyname:"CandidateFileInfo"});
+
+        //select f.FileId , Extension  from  fileinfo f , candidatemaster c where  f.FileId LIKE concat(c.CandidateId , '-%')  and f.DocumentType = "CandidateResume" 
+        //select f.FileId , Extension  from  fileinfo f where  f.FileId in (SELECT concat(CandidateId , '-1') from candidatemaster )  and f.DocumentType = "CandidateResume"
+      }
+
+      
+      //alert(JSON.stringify(queries));
+
+      //getData(queries);
+
+      QArray = JSON.stringify(queries);
+
+      getCustomData(QArray,putitemsintolist);  
+
+}
+
+/*
+function getData(queries)
+{
+
+    getDatasetWithCallback( putitemsintolist );
+
+}
+
+
+function putitemsintolist(mdata)
+{
+    i=1; j=1;p=1;
+
+    //alert(JSON.stringify(mdata));
+
+    $('.job-filter-result .job-list').remove();
+    $('.pagination').html('');
+
+    
+
+    //alert(searchmode == 'Jobs');
+
+    //$.each( mdata, function(key, obj)
+    //{
+    //  alert(key);
+
+    //  $.each(obj,function(keyform,formvalue)
+    //  {
+
+    //    alert(keyform);
+
+    //    $.each(formvalue, function(reckey,recvalue)
+    //    {
+    
+        $.each (mdata[0].info,function(key,recvalue) {
+
+          if (p==1)
+          {
+            //alert(j);
+
+            $slide = $('<div id="slide'+j+'"/>').addClass("slide");  
+            job= '';      
+          }
+
+              //alert(recvalue.Title + '--' + recvalue.Location + '--' +  recvalue.City+ '--'  + recvalue.Country+ '--'  + recvalue.JobId); 
+               
+               if (searchmode == 'Jobs')
+               {
+                
+                  Title = recvalue.Title;
+                  searchLocate = recvalue.Location;
+                  City = recvalue.City;
+                  Country = recvalue.Country;
+                  JobId = recvalue.JobId;
+                  Description = recvalue.Description;
+                  BusinessName =  recvalue.BusinessName;
+
+                  FileLink = "#";
+
+                  //alert('in Jobs')
+               }
+               else
+               {
+
+                  //alert(searchmode);
+
+                  Title = recvalue.FirstName + " " + recvalue.LastName ;
+                  searchLocate = recvalue.CurrentPosition ;
+                  City = recvalue.CurrentLocation  + '  Relocation : ' + recvalue.ReLocation ;
+                  Country = recvalue.Experience;
+                  JobId = recvalue.CandidateId;
+
+                  Description =  'Qualifications : ' + recvalue.Qualifications ;
+
+                  //alert(recvalue.CandidateId + "-1") ;
+
+                  var CandidateFiles = $.grep(mdata[1].CandidateFileInfo, function(v) {
+                    return v.FileId === ( recvalue.CandidateId + "-1") ; //&& v.SubModuleName === SubModuleName;
+                });
+                
+                //alert(  JSON.stringify(CandidateFiles) );
+
+                  if (CandidateFiles.length)
+                  {
+                    FileLink =   "uploads/Resumes/" + recvalue.CandidateId + "-1." + CandidateFiles[0].Extension ;
+                  }
+                  else
+                  {
+                    FileLink =""; 
+                  } 
+                }
+               
+               //alert(Title + '-' + searchLocate + '-' + City + '-' + Country + '-' + JobId + '-'+ Description);
+
+
+               
+
+               job = job +  '<div class="job-list">';
+                    job = job +  '<div class="thumb">';
+                      job = job +  '<a href="#">';
+                        job = job +  '<img src="images/job/company-logo-2.png" class="img-fluid" alt="">';
+                      job = job +  '</a>';
+                    job = job +  '</div>';
+                    job = job +  '<div class="body">';
+                      job = job +  '<div class="content">';
+                        job = job +  '<h4><a href="job-details.html" onclick="showjobdetails(\'' + JobId + '\');" >'+ Title +'</a></h4>';
+                        job = job +  '<div class="info">';
+                          job = job +  '<span class="company"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-briefcase"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>'+BusinessName+'</a></span>';
+                          job = job +  '<span class="office-location"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> ' + searchLocate + '</a></span>';
+                          job = job +  '<span class="job-type part-time"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>Part Time</a></span>';
+                        job = job +  '</div>';
+                      job = job +  '</div>';
+                      job = job +  '<div class="more">';
+                        job = job +  '<div class="buttons">';
+                          job = job +  '<a href="#" class="button" data-toggle="modal" data-target="#apply-popup-id" onclick="jobtitle=\'' + Title + '\';">Apply Now</a>';
+                          job = job +  '<a href="#" class="favourite"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></a>';
+                        job = job +  '</div>';
+                        job = job +  '<p class="deadline">Deadline: Oct 31,  2019</p>';
+                      job = job +  '</div>';
+                    job = job +  '</div>';
+                  job = job +  '</div>';
+
+               
+
+              // alert(job);
+
+          i++;p++;
+          
+          //alert(( i-1 == obj[keyform].length) + '--' + (i-1) + '==' +  obj[keyform].length);
+          //alert( i + '---' + ( i > 11 ) + '-- '  +  ( (i-1)==(obj[keyform].length) ) );
+
+          //if ( ( p > 10 ) || ( (i-1)==(obj[keyform].length) ) )
+          if ( ( p > 12 ) || ( (i-1)==(mdata[0].info.length) ) )
+          {
+            //alert(job);
+            
+            $(job).appendTo($slide);
+
+            $slide.appendTo('.job-filter-result');
+            
+            p = 1; j++;
+          }
+
+        });
+
+      //}); 
+
+      var slider2 = $('.job-filter-result').smallSlider({  pauseTime:'' ,prevNav:'.prev',nextNav:'.next',controlNav: '.nav-links',navigationclass:'page-numbers' });
+    
+    //});
+
+  
+}
+
+
+function searchjob()
+{
+          sessionStorage.setItem("Keywords",$('#Keywords').val()); sessionStorage.setItem("Category",$('#search-category').val());  sessionStorage.setItem("Location",$('#search-location').val()); 
+
+          callsearch();
+}
+
+
+function getUserInfo()
+{
+  $('#UserName').val(sessionStorage.getItem("UserName") ); $('#EmailId').val(sessionStorage.getItem("EmailId") );
+}
+*/
+
+
+
+    </script>
+
+  </body>
+</html>

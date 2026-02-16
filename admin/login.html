@@ -1,0 +1,180 @@
+<div class="cls-content">
+
+    <div class="cls-content-sm ">
+
+      <div class="panel">
+        
+        <div class="panel-body">
+          <div class="pad-btm">Sign In <div style="float:right;" id="callEnquiry"><a href="#">Enqiry Form</a></div></div> 
+          <form action="index.html">
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                <input type="text" class="form-control" placeholder="Username" id="username">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-addon"><i class="fa fa-asterisk"></i></div>
+                <input type="password" class="form-control" placeholder="Password" id="password">
+              </div>
+            </div>
+            <div class="form-group" style="display:">
+              <div class="input-group">
+                <div class="input-group-addon"><i class="fa fa-asterisk"></i></div>
+                <input type="password" class="form-control" placeholder="company code" id="companycode" value>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-addon">login As</div>
+
+                   <div class="btn-group btn-group-sm bootstrap-select" style="width:100%;">
+                   
+                  <button class="btn btn-default btn-active-purple dropdown-toggle" data-toggle="dropdown" type="button" aria-expanded="false" style="width:100%;   /* background-color:#e7ebee; #c8ccce;*/" id="loginoption" titel="User">User<span class="caret"></span>
+                      </button>
+                   
+                      <ul class="dropdown-menu">
+                        <li><a href="#">User</a></li>
+						            <li><a href="#">AppUser</a></li>
+                        <li><a href="#">BusinessListingUser</a></li>
+                        <li><a href="#">Staff</a></li>
+                        <li><a href="#">Student/Parent</a></li>
+                        <li><a href="#"></a></li>
+                        
+                      </ul>
+                  
+                  </div> 
+
+              </div>
+
+            </div>
+
+              <div id="financediv" style="margin-bottom:10px;display:none">
+              <h4 id="companytitle">limrahsoft - Finance Years</h4> <div class="list-group" id="financedivitems">  <a class="list-group-item active" href="#"> <span style="width:10%;float:left;">SNo</span> <span style="width:35%;float:left;;margin-left:10px">FinanceYear</span> <span style="width:20%;float:left;;margin-left:10px"> StartMonth</span> <span style="width:20%;margin-left:10px">EndMonth</span></a> <a class="list-group-item FinanceYears" dbname="limrahsoft" href="#"> <span class="badge badge-primary" style="float:left;width:10%">1</span> <span style="float:left;width:35%;margin-left:10px"> 2016-2017</span> <span style="float:left;width:20%;margin-left:10px"> June</span> <span style="width:20%;margin-left:10px"> May</span> </a>
+
+              <a class="list-group-item FinanceYears" dbname="limrahsoft" href="#"> <span class="badge badge-primary" style="float:left;width:10%">1</span> <span style="float:left;width:35%;margin-left:10px"> 2016-2017</span> <span style="float:left;width:20%;margin-left:10px"> June</span> <span style="width:20%;margin-left:10px"> May</span> </a>
+
+               <a class="list-group-item " href="#"> <span ="" style="float:left;width:10%;margin-left:10px"></span> <span></span></a></div> <div class="panel-footer">Select Finance Years</div>  </div>
+
+
+            <div class="row">
+              <div class="col-xs-8 text-left checkbox">
+                <label class="form-checkbox form-icon form-text">
+                <input type="checkbox"> Remember me
+                </label>
+              </div> 
+              <div class="col-xs-4 form-group text-right">
+                <!-- <div class="form-group text-right"> -->
+                <button class="btn btn-success text-uppercase" type="button" onclick="if(gcompanyname=='') { callStartUp('loginERP()');}else{loginERP();}">Sign In</button>
+                <!-- </div> -->
+              </div>
+            </div>
+              <!--
+              <div class="mar-btm"><em>- or -</em></div>
+              <button class="btn btn-primary btn-lg btn-block" type="button">
+                <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+              </button> if(gcompanyname=='') { alert(gcompanyname); $.when(callStartUp()).then(loginERP()); } }else{loginERP();}
+              $.when(function1()).then(function2());
+            -->
+
+          </form>
+          
+          <div class="err" id="statusdiv1" align="center" style="display:none; background: linear-gradient(rgb(255, 255, 255) 0%, rgb(249, 250, 253) 30%, rgb(238, 242, 247) 60%, rgb(228, 233, 244) 100%);"> *</div>
+
+          <div class="pad-ver">
+            <a href="pages-password-reminder.html" class="btn-link mar-rgt">Forgot password ?</a>
+            <a href="pages-register.html" class="btn-link mar-lft">Create a new account</a>
+          </div>
+   
+        </div>
+
+      </div>
+      
+
+      </div>
+       
+      <!--<div align="center" style="width:30%;height:auto;margin:20px auto;background-color:#F8FAFF;border-radius: 4px;" id="testmodal" class="cls-content-sm panel"><div class="col-md-12 col-lg-12"> <div class="panel"> limrahsoft <div class="panel-heading"><h3 class="panel-title">Finance Years</h3> </div> <div class="panel-body"> <div class="list-group">  <a class="list-group-item active" href="#"> <span style="width:10%;float:left;">SNo</span> <span style="width:50%;float:left;">FinanceYear</span> <span style="width:20%;float:left;"> StartMonth </span> <span style="width:20%;">EndMonth</span></a> <a class="list-group-item FinanceYears" dbname="limrahsoft" href="#"> <span class="badge badge-primary" style="float:left;width:10%">1</span> <span style="float:left;width:50%;"> 2016-2017</span> <span style="float:left;width:20%;"> June</span> <span style="width:20%;"> May</span> </a> <a class="list-group-item " href="#"> <span ="" style="float:left;width:10%;"></span> <span></span></a></div> <div class="panel-footer">Select Finance Years</div> </div> </div> </div></div>  -->   
+
+  </div>
+
+<script type="text/javascript">
+
+        $(".dropdown-menu li a").click(function(e){
+
+            var selText = $(this).text();
+
+            //$(this).parents('.btn-group,.input-group').find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
+            $(this).parents('.btn-group,.input-group').find('.btn').html(selText+' <span class="caret"></span>');
+            $(this).parent('li').siblings().removeClass('active');
+            $(this).parents('li').addClass("active"); 
+            //$('#searchtext').val($(this).attr('data-value')); 
+        });
+
+
+        function getloginurl()
+        {
+          //url = ( username=="admin" ? "login.php" : "loginuser.php");
+          url =  "loginDb.php" ;
+          
+          financeurl = 'GetFinanceYears.php';
+
+          //alert('Url : ' + url);
+        }
+
+        $('#companycode').bind('chnage blur',function()
+        {
+          //alert('aaa');
+
+          callStartUp();
+
+        });
+        
+        $('#callEnquiry').click(function(){
+
+         if (dp=='' || !dp)
+         {
+          callStartUp('GeneralEnquiry()');
+          
+         }
+         else
+         {
+           GeneralEnquiry();
+         } 
+
+          
+         /* $('#custombody').load('EnquiryForm.html',function()
+          {
+                $('#logindiv').fadeOut();
+                $('#customdiv').fadeIn();
+
+          });*/
+        });  
+
+        function GeneralEnquiry()
+        {
+
+          $('#messagelist').hide();
+          $('#MessageBoard').hide();
+          $('#UserMessageBoard').hide();
+          $('#notifydetails').hide();
+
+          $('[optiondiv=true]').hide();//$('#NewMessageDiv').load('AddContact.html').fadeIn();
+
+           $('#custombody').load('EnquiryForm.html?q='+$.now() , function() 
+           {
+         
+            $('#customdiv').fadeIn();
+            //searchcolumn="groupwise";
+            searchcolumn = "groupname";
+            queries=[];
+            groupConQry = "select * from groupmaster where grouptype='Admin\'";
+            queries.push({TransQry:groupConQry,formattype:'json',keyname:"groupinfo"});
+            getDatasetWithCallback( putitemsintoEnquiryGroup );
+
+           }).fadeIn(); 
+        }
+
+
+</script>
